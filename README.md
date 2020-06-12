@@ -3,4 +3,4 @@
 # Cover
 <img src ="https://github.com/AhmedRaja1/HSS/blob/master/HSS-DIGITAL-PLATFORM-light.png">
 <br>
-<img src ="<img src ="https://github.com/AhmedRaja1/HSS/blob/master/HSS-DIGITAL-PLATFORM-light.png">">
+<img src ="<img src ="https://github.com/AhmedRaja1/HSS/blob/master/HSS-DIGITAL-PLATFORM-light.png">
