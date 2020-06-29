@@ -1,5 +1,5 @@
 # (HSS) Hazara Students Society UET Peshawar
-## Graphics Design Repositor for future Design Processes
+## Graphics Design Repository for future Design Processes
 
 
 <img src ="https://github.com/AhmedRaja1/HSS/blob/master/HSS-DIGITAL-PLATFORM-light.png">
