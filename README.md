@@ -69,7 +69,8 @@ A high-contrast, modern, typography-first web ecosystem built for the **Hazara S
    - Facebook Main Page (`@hazarastudentssociety`)
    - Facebook Official 22 Chapter (`@hssofficial22`)
    - Official Instagram of HSC (`@hazare.wall`)
-   - Open Graph Protocol configured with primary logo for rich WhatsApp previews.
+   - Open Graph Protocol configured with high-res 1024x540 landscape banner (`og-image.jpg`) for WhatsApp and social media rich card previews.
+   - Deployed on Vercel (`https://hsspk.vercel.app/`) with CORS and cache headers.
 
 10. **Attribution**:
     - *Made with love in Abbottabad 🏔️ by [Raja Ahmed](https://ahmedrajaspeaks.cloud)*
@@ -82,19 +83,21 @@ A high-contrast, modern, typography-first web ecosystem built for the **Hazara S
 HSS/
 ├── index.html                 # Master portal landing page with all 10 core sections
 ├── cabinet-2026.html          # Dedicated 2026 Cabinet Announcement page
+├── og-image.jpg               # Open Graph Protocol landscape image (WhatsApp preview)
+├── vercel.json                # Vercel deployment & asset caching configuration
 ├── README.md                  # Project documentation
 └── assets/
     ├── css/
     │   └── style.css          # Blue-Black & White responsive stylesheet
     ├── js/
-    │   └── main.js            # Interactive controllers (countdown, modal, WhatsApp, tabs)
+    │   └── main.js            # Interactive controllers (theme, modal, popup, WhatsApp)
     └── images/
-        ├── hss-logo-navy.png  # Main dark scalloped seal emblem (Open Graph image)
+        ├── og-image.jpg       # Open Graph Protocol image for WhatsApp/Facebook (1024x540)
+        ├── hss-logo-navy.png  # Main dark scalloped seal emblem
         ├── hsc-logo.jpg       # Hazara Students Council (HSC) emblem
         ├── hss-logo-gold.png  # Executive crest emblem
         ├── hindko-society-logo.png # Hindko linguistic seal
-        ├── linkedin-achievements.png # Verified leadership record
-        └── og-preview.png     # Social share card preview
+        └── linkedin-achievements.png # Verified leadership record
 ```
 
 ---

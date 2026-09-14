@@ -295,7 +295,12 @@ function initWhatsAppShare() {
   shareBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const currentUrl = window.location.href;
+      let shareUrl = window.location.href;
+      if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        shareUrl = window.location.pathname.includes('cabinet')
+          ? 'https://hsspk.vercel.app/cabinet-2026.html'
+          : 'https://hsspk.vercel.app/';
+      }
       const shareMessage = 
 `✨ *Hazara Students Society (HSS) - Official Portal* ✨
 
@@ -304,7 +309,7 @@ function initWhatsAppShare() {
 📜 *Official 2026 Cabinet Announced!*
 
 📖 Explore the Portal & 2026 Cabinet:
-${currentUrl}`;
+${shareUrl}`;
 
       const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareMessage)}`;
       window.open(whatsappUrl, '_blank');
