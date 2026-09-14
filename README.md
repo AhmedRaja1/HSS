@@ -1,111 +1,108 @@
-# Hazara Students Society (HSS) - Official Upcoming Portal
+# Hazara Students Society (HSS) - Official Portal
 
-A sleek, culturally grounded "upcoming" landing page built for the **Hazara Students Society (HSS)**. Designed with the modern, typography-first aesthetic of **Google Product Pages** (such as Google Store / Pixel) combined with a royal cultural palette (Deep Midnight Navy, Heritage Gold, and Warm Ivory).
+A high-contrast, modern, typography-first web ecosystem built for the **Hazara Students Society (HSS)**. Styled in an authoritative **Blue-Black & White** palette (`#040812`, `#081124`, and crisp pure `#ffffff`) with prestigious institutional typography (*Plus Jakarta Sans*, *Poppins*, *Lato*, and *Noto Nastaliq Urdu*).
 
 ---
 
-## 🌟 Key Highlights & Features
+## 🌟 Key Features & Sections
 
-1. **Google Product Style Aesthetic**:
-   - Floating frosted glass navigation with responsive mobile drawer.
-   - Pill badges with animated status indicators (`✦ Upcoming Official Portal • Est. Late 1980s`).
-   - High-contrast geometric typography using Google Fonts: *Plus Jakarta Sans*, *Poppins*, and *Lato* with *Noto Nastaliq Urdu* accents.
-   - Subtle radial gradient lighting, soft cards, and micro-interactions.
+1. **Blue-Black & Pure White Aesthetic**:
+   - Modern, high-contrast palette with full Light Mode and Dark Mode support (theme toggle with localStorage persistence).
+   - Clean, prestigious white/blue pill buttons with high-contrast typography and subtle glow.
+   - Smart scroll-hide top navigation (shortened brand) and sleek floating bottom mobile dock.
 
 2. **Official Emblems & Linguistic Seals Showcase**:
-   - **Apex Seal (KP Chapter)**: The dark scalloped badge featuring calligraphic "ہزارہ" (Hazara).
-   - **Executive Crest**: The prestigious gold crest representing provincial patronage and advisory stewardship.
-   - **Linguistic Soul (Hindko Students Society)**: The black-and-white seal celebrating the heritage of Hindko.
+   - **Apex Seal (KP Chapter)**: The dark scalloped badge with calligraphic "ہزارہ".
+   - **Hazara Students Council (HSC)**: The council seal representing inter-district campus fellowship across universities.
+   - **Executive Crest**: The royal seal representing institutional stewardship and provincial patronage.
+   - **Linguistic Soul (Hindko Students Society)**: The historic emblem celebrating the sweet literature and folklore of Hindko.
 
-3. **Open Graph Protocol & WhatsApp Link Previews**:
-   - Fully configured `<meta property="og:image">` using the high-resolution dark seal badge (`og-preview.png`).
-   - 1-click **"Share on WhatsApp"** button that preloads an engaging invite message with links.
-   - Interactive Open Graph preview simulator box on the hero section.
+3. **Regulated Constitution & By-Laws**:
+   - Co-equal executive weightage of Chairpersonship and Presidentship.
+   - Institutional mandate under Para 4, Phase 1 exercised by the Board of Governors and Esteemed Alumnus Raja Ahmed.
+   - In-person grievance redressal mandate in Peshawar under Para 6.
+   - Intra-organization election triggers within 3 weeks if grievances persist.
+   - Notice of in-process 2026 Constitution upload coming soon.
 
-4. **Manifesto & Crux (Interactive Tabbed Explorer)**:
-   - **Cultural Evangelism**: Preserving traditions, folklore, and identity across Hazara Division.
-   - **Linguistics & Hindko**: Revitalizing Hindko language, idioms, poetry, and oral literature.
-   - **UET Peshawar Cradle**: Chronicling over three decades of leadership since the late 1980s as the nationwide parent chapter.
-   - **Digital Hazara & Youth**: Modern tech skills, creative media production, and civic leadership.
+4. **Alumni Network & Board of Governors**:
+   - Global organizational tier structure: **Tier 1: Board of Governors (BoG)**, **Tier 2: Advisory Council & Statesmen**, **Tier 3: STEM & Industry Global Guild**.
+   - Dedicated focus on reconnecting and shifting campus bonding into professional relationships in STEM and national verticals.
+   - **All 6 Alumni Cohort Demographics** recorded with verbatim rosters:
+     - **Class of 2019 (Senior Most)**: Raja Khizar, Imran Khalid, Faraz Bashir, Qasim Khawaj, David Bhai 😀, Umair Battagram, Hamza Khan, etc.
+     - **Class of 2020 (The Favorites ❤ & Founders of Modern HSS)**: Azeem Ali, Sherry & Co, Saad Ali, Malik Hamza, Usama Swati, Shazain, Abdul Rehman Shah, Moazzam Paracha, etc.
+     - **Class of 2021 (Our Direct Seniors)**: Syed Shah Waleed & Co, Daniyal, Shaban Mughal, Sikander Jahangiri, Osama Khan Jadoon, Sohaib Battagram, etc.
+     - **Class of 2022 (We 😀, Longest Serving Cabinet & Revivers)**: Raja Ahmed, Shahmeer Awan, Usman Qureshi, M Hafeez, Ehsan Jadoon, Hassan Irshad, Sajjad Khan, Asim Aslam, Usama Asif, etc.
+     - **Class of 2023 (The Legacy Continuers)**: Asfand Yar Khan, Huzaifa Malik, Hassan Jadoon, Sarmad Riaz, Zohaib Jadoon, Danyal, Hassan, Summer Khan, Saifullah Khalid, Ahtesham, Yaseen, Irshad, etc.
+     - **Class of 2024 (Running Cabinet & Future)**: Hamza Jehangir, Abdullah Jadoon, Aisam Shah, Ebtihaj Abdullah, with active Class of 2025 & 2026 core team.
+   - **Cyberspace Respect & Professional Networking Protocol**.
+   - **Copyable Standardized Alumni Intro Message Template** with one-click clipboard action.
+   - Heritage quote: *"Times have changed, millimeters have become centimeters and time really flies. One thing which remained constant is love for our land & culture. #HailHazara #SohnraDaisHazara"*.
 
-5. **Documented Milestones & Achievements**:
-   - Grand Hazara Nights (Peshawar Districts)
-   - Funfest (Mega Cultural Festival)
-   - Digital Hazara E-Learning
-   - "Bringing Smiles" Social & Student Welfare
-   - KPK State Assembly Delegations
-   - Official Brand Video & Media Production
+5. **Non-Profit Status & Statutory Registration in Pakistan**:
+   - Explicit declaration of active statutory registration in Pakistan.
+   - Comprehensive review of the 5 applicable statutory frameworks:
+     1. Societies Registration Act, 1860 (Act XXI of 1860)
+     2. Voluntary Social Welfare Agencies Ordinance, 1961
+     3. Section 42 of the Companies Act, 2017 (SECP Not-for-Profit Company)
+     4. The Trusts Act, 1882 & KP Trusts Act, 2020
+     5. Khyber Pakhtunkhwa Charities Act, 2019
 
-6. **Governance & Legal Lineage**:
-   - Patronage lineage under the orders of the **Governor of Khyber Pakhtunkhwa**.
-   - Strategic guidance from Chief Advisor **Mr. Mushtaq Ahmed Ghani** (former Speaker KPK Assembly).
-   - Stewardship by the sitting cabinet at **UET Peshawar**.
+6. **Democratic Philosophy & Political Affiliation**:
+   - Pro-democratic, non-partisan institutional stance encouraging young engineers and students to participate in politics in every capacity.
+   - Absolute freedom of personal opinion and party preference.
+   - Alumni representation across: ISF, Insaf Engineers Forum, PP Student Wing, PML-N Students, JI Jameeat, JUI, MQM, ANP, and Awaam Pakistan Young Leaders.
 
-7. **Interactive Components**:
-   - Live Countdown timer to the full portal launch.
-   - "Join the Movement / Register Interest" modal dialog with validation and toast notifications.
-   - Direct integration to both official Facebook communities:
-     - [Hazara Students Society Main](https://www.facebook.com/hazarastudentssociety/)
-     - [HSS Official 22 Chapter](https://www.facebook.com/hssofficial22/)
+7. **The Hazara Cause (Hazara Suba)**:
+   - Articulation of the constitutional, democratic, and administrative case for a separate Hazara Province.
+   - Annual commemoration of **January 8** (historic Hazara resolution day) and **April 11, 2010** (honoring the Martyrs of Abbottabad).
+
+8. **Cabinet for the Year 2026 (`cabinet-2026.html`) & Home Announcement Pop-up**:
+   - **Auto Home Page Pop-up**: Greets visitors on the home page with an official announcement modal highlighting *"New Cabinet Announced!"* and directing them to explore the full 2026 Cabinet roster.
+   - Dedicated proclamation page with constitutional preamble and rules.
+   - Complete, responsive, centered tables for:
+     - **Executive Leadership** (20 members)
+     - **The Cabinet** (15 members)
+     - **Core Team** (8 members)
+   - Preserving exact academic term fellow superscripts (`⁷` for Senior, `⁵` for Junior, `³` for Sophomore).
+
+9. **Social Communities & Media**:
+   - Facebook Main Page (`@hazarastudentssociety`)
+   - Facebook Official 22 Chapter (`@hssofficial22`)
+   - Official Instagram of HSC (`@hazare.wall`)
+   - Open Graph Protocol configured with primary logo for rich WhatsApp previews.
+
+10. **Attribution**:
+    - *Made with love in Abbottabad 🏔️ by [Raja Ahmed](https://ahmedrajaspeaks.cloud)*
 
 ---
 
-## 📁 Project Directory Structure
+## 📁 Directory Structure
 
 ```
-hazara-students-society/
-├── index.html                 # Semantic HTML5 entrypoint with Open Graph metadata
-├── README.md                  # Documentation and deployment guide
+HSS/
+├── index.html                 # Master portal landing page with all 10 core sections
+├── cabinet-2026.html          # Dedicated 2026 Cabinet Announcement page
+├── README.md                  # Project documentation
 └── assets/
     ├── css/
-    │   └── style.css          # Master stylesheet (Google Product + Cultural Design)
+    │   └── style.css          # Blue-Black & White responsive stylesheet
     ├── js/
-    │   └── main.js            # Interactive controllers (countdown, modal, tabs, WhatsApp share)
+    │   └── main.js            # Interactive controllers (countdown, modal, WhatsApp, tabs)
     └── images/
-        ├── hss-logo-navy.png  # Dark scalloped seal emblem
-        ├── hss-logo-gold.png  # Gold executive crest emblem
-        ├── hindko-society-logo.png # Hindko linguistic emblem
+        ├── hss-logo-navy.png  # Main dark scalloped seal emblem (Open Graph image)
+        ├── hsc-logo.jpg       # Hazara Students Council (HSC) emblem
+        ├── hss-logo-gold.png  # Executive crest emblem
+        ├── hindko-society-logo.png # Hindko linguistic seal
         ├── linkedin-achievements.png # Verified leadership record
-        └── og-preview.png     # WhatsApp / Social share Open Graph preview image
+        └── og-preview.png     # Social share card preview
 ```
 
 ---
 
-## 🚀 How to Run & Preview
+## 🚀 How to Preview & Host
 
-### Method 1: Direct File Opening
-Double-click `index.html` or right-click and choose **Open with > Google Chrome / Microsoft Edge**. Everything is self-contained with no build steps required!
-
-### Method 2: Local Web Server
-You can serve the folder using any lightweight web server:
+Open `index.html` or `cabinet-2026.html` directly in any web browser, or launch using Python:
 ```bash
-# Using Node / npx (if installed)
-npx serve .
-
-# Or using Python (if installed)
 python -m http.server 8080
 ```
-Then visit `http://localhost:8080` in your browser.
-
----
-
-## 📲 How WhatsApp Link Previews Work
-
-When you paste a link in WhatsApp, WhatsApp scrapes the target URL for Open Graph tags:
-- `og:title`: Hazara Students Society | Official Upcoming Portal
-- `og:description`: Evangelizing the vibrant culture, linguistics & heritage of the Hazara region...
-- `og:image`: The square dark emblem (`og-preview.png`)
-
-> **Note on Local vs. Public Previews**:
-> WhatsApp's preview scraper runs on WhatsApp's cloud servers. It can only fetch images from a **publicly reachable URL** (e.g. `https://your-site.vercel.app/assets/images/og-preview.png`). Once deployed to GitHub Pages, Vercel, or Netlify, WhatsApp link previews will display the rich preview card automatically!
-
----
-
-## 🌐 Instant Free Deployment (1 Minute)
-
-1. **GitHub Pages**:
-   - Create a GitHub repo and push these files.
-   - Go to **Settings > Pages > Branch: main / root** and click Save.
-2. **Vercel / Netlify**:
-   - Drag and drop the `hazara-students-society` folder into [Netlify Drop](https://app.netlify.com/drop) or import via Vercel.
-   - Your site will instantly be live with full SSL and working WhatsApp link preview cards.
+Then visit `http://localhost:8080` in your mobile or desktop browser.

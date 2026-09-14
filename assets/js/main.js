@@ -1,21 +1,108 @@
 /**
- * Hazara Students Society (HSS) - Official Upcoming Portal
- * Interactive Controllers: Countdown, Manifesto Tabs, Modal, WhatsApp Share, Toast
+ * Hazara Students Society (HSS) - Official Portal JavaScript
+ * Features: Light/Dark Mode, Smart Hide/Show Navbar on Scroll, Mobile Dock,
+ * Countdown, Tabs, Modal, WhatsApp Share, Toast Notifications
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
   initCountdown();
-  initStickyHeader();
-  initMobileMenu();
+  initSmartHeader();
+  initMobileDock();
   initManifestoTabs();
   initModal();
+  initCabinetAnnouncementModal();
   initWhatsAppShare();
   initCopyLink();
+  initIntroTemplateCopy();
   initScrollSpy();
 });
 
 /* ==========================================================================
-   1. Live Countdown Timer to Official Portal Launch
+   1. Light / Dark Mode Toggle with LocalStorage
+   ========================================================================== */
+function initTheme() {
+  const savedTheme = localStorage.getItem('hss_theme') || 'dark';
+  applyTheme(savedTheme);
+
+  const themeToggleButtons = document.querySelectorAll('#themeToggleBtn, #dockThemeToggle');
+  themeToggleButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(newTheme);
+      showToast(`Switched to ${newTheme === 'dark' ? 'Dark' : 'Light'} Mode 🌓`);
+    });
+  });
+}
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('hss_theme', theme);
+
+  const headerBtn = document.getElementById('themeToggleBtn');
+  if (headerBtn) {
+    headerBtn.textContent = theme === 'dark' ? '🌙' : '☀️';
+    headerBtn.setAttribute('title', `Current: ${theme} theme. Click to switch.`);
+  }
+}
+
+/* ==========================================================================
+   2. Smart Sticky Header: Hides on Scroll Down, Shows on Scroll Up
+   ========================================================================== */
+function initSmartHeader() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  const updateHeader = () => {
+    const currentScrollY = window.scrollY;
+
+    // Background blur & shadow
+    if (currentScrollY > 20) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+
+    // Hide when scrolling down, show when scrolling up
+    if (currentScrollY > 80 && currentScrollY > lastScrollY) {
+      header.classList.add('nav-hidden');
+    } else {
+      header.classList.remove('nav-hidden');
+    }
+
+    lastScrollY = Math.max(0, currentScrollY);
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+/* ==========================================================================
+   3. Mobile Bottom Dock Navigation
+   ========================================================================== */
+function initMobileDock() {
+  const dockItems = document.querySelectorAll('.mobile-dock .dock-item:not(#dockThemeToggle)');
+  if (!dockItems.length) return;
+
+  dockItems.forEach(item => {
+    item.addEventListener('click', () => {
+      dockItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+    });
+  });
+}
+
+/* ==========================================================================
+   4. Live Countdown Timer to Portal Launch
    ========================================================================== */
 function initCountdown() {
   const daysEl = document.getElementById('days');
@@ -25,7 +112,6 @@ function initCountdown() {
 
   if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
 
-  // Set target launch date: 45 days from first visit, persisted in localStorage
   const storageKey = 'hss_launch_timestamp';
   let targetTime = localStorage.getItem(storageKey);
 
@@ -67,51 +153,7 @@ function initCountdown() {
 }
 
 /* ==========================================================================
-   2. Sticky Glass Header on Scroll
-   ========================================================================== */
-function initStickyHeader() {
-  const header = document.querySelector('.site-header');
-  if (!header) return;
-
-  const handleScroll = () => {
-    if (window.scrollY > 30) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  };
-
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll();
-}
-
-/* ==========================================================================
-   3. Mobile Navigation Drawer
-   ========================================================================== */
-function initMobileMenu() {
-  const toggleBtn = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  if (!toggleBtn || !navLinks) return;
-
-  toggleBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    const isOpen = navLinks.classList.contains('open');
-    toggleBtn.setAttribute('aria-expanded', isOpen);
-    toggleBtn.innerHTML = isOpen ? '✕' : '☰';
-  });
-
-  // Close drawer when clicking any link
-  navLinks.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      toggleBtn.innerHTML = '☰';
-      toggleBtn.setAttribute('aria-expanded', 'false');
-    });
-  });
-}
-
-/* ==========================================================================
-   4. Manifesto & Crux Interactive Tab Switcher
+   5. Manifesto & Crux Interactive Tab Switcher
    ========================================================================== */
 function initManifestoTabs() {
   const tabButtons = document.querySelectorAll('.tab-btn');
@@ -136,7 +178,7 @@ function initManifestoTabs() {
 }
 
 /* ==========================================================================
-   5. Interactive Join / Interest Registration Modal
+   6. Interactive Join / Interest Registration Modal
    ========================================================================== */
 function initModal() {
   const openBtns = document.querySelectorAll('[data-open-modal]');
@@ -161,19 +203,16 @@ function initModal() {
   openBtns.forEach(btn => btn.addEventListener('click', openModal));
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
-  // Click outside to close
   modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
   });
 
-  // Escape key to close
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('open')) {
       closeModal();
     }
   });
 
-  // Handle Form Submission
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -188,7 +227,6 @@ function initModal() {
         timestamp: new Date().toISOString()
       };
 
-      // Save to localStorage
       const existing = JSON.parse(localStorage.getItem('hss_registrations') || '[]');
       existing.push(registration);
       localStorage.setItem('hss_registrations', JSON.stringify(existing));
@@ -196,13 +234,59 @@ function initModal() {
       closeModal();
       form.reset();
 
-      showToast(`Welcome, ${name}! Your interest has been registered. You'll receive early access to the portal! 🎉`);
+      showToast(`Welcome, ${name}! Your interest has been registered. 🎉`);
     });
   }
 }
 
 /* ==========================================================================
-   6. WhatsApp Link Sharing with Formatted Preview
+   6b. Auto Pop-up on Home Page: "New Cabinet Announced" -> Takes to Cabinet Page
+   ========================================================================== */
+function initCabinetAnnouncementModal() {
+  const modal = document.getElementById('cabinetAnnouncementModal');
+  if (!modal) return;
+
+  const closeBtn = document.getElementById('closeAnnouncementModalBtn');
+  const dismissBtn = document.getElementById('dismissAnnouncementBtn');
+
+  function openAnnouncementModal() {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeAnnouncementModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Smooth pop-up appearance after brief delay
+  setTimeout(() => {
+    openAnnouncementModal();
+  }, 450);
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeAnnouncementModal);
+  }
+
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', closeAnnouncementModal);
+  }
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeAnnouncementModal();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      closeAnnouncementModal();
+    }
+  });
+}
+
+/* ==========================================================================
+   7. WhatsApp Link Sharing with Formatted Preview
    ========================================================================== */
 function initWhatsAppShare() {
   const shareBtns = document.querySelectorAll('[data-action="share-whatsapp"]');
@@ -213,23 +297,24 @@ function initWhatsAppShare() {
       e.preventDefault();
       const currentUrl = window.location.href;
       const shareMessage = 
-`✨ *Hazara Students Society (HSS) - Official Upcoming Portal* ✨
+`✨ *Hazara Students Society (HSS) - Official Portal* ✨
 
-🏛️ Evangelizing the vibrant culture, linguistics & rich heritage of the Hazara region of KPK since the late 1980s.
+🏛️ Evangelizing the vibrant culture, linguistics & rich heritage of the Hazara region of KPK since the 1980s when UET became an independent chartered engineering university.
 🎓 Parent Chapter: UET Peshawar (Leading nationwide subsidiaries).
+📜 *Official 2026 Cabinet Announced!*
 
-📖 Explore the Manifesto, Cultural Pillars & Upcoming Portal:
+📖 Explore the Portal & 2026 Cabinet:
 ${currentUrl}`;
 
       const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareMessage)}`;
       window.open(whatsappUrl, '_blank');
-      showToast('Opening WhatsApp with preview link! 📲');
+      showToast('Opening WhatsApp with preview card! 📲');
     });
   });
 }
 
 /* ==========================================================================
-   7. Copy Link Action
+   8. Copy Link Action
    ========================================================================== */
 function initCopyLink() {
   const copyBtns = document.querySelectorAll('[data-action="copy-link"]');
@@ -237,7 +322,7 @@ function initCopyLink() {
     btn.addEventListener('click', () => {
       const url = window.location.href;
       navigator.clipboard.writeText(url).then(() => {
-        showToast('Official page link copied to clipboard! 📋');
+        showToast('Official portal link copied! 📋');
       }).catch(() => {
         showToast('Link copied: ' + url);
       });
@@ -246,7 +331,32 @@ function initCopyLink() {
 }
 
 /* ==========================================================================
-   8. Toast Notification Utility
+   8b. Copy Alumni Intro Message Template
+   ========================================================================== */
+function initIntroTemplateCopy() {
+  const btn = document.getElementById('copyIntroTemplateBtn');
+  const codeEl = document.getElementById('introTemplateContent');
+  if (!btn || !codeEl) return;
+
+  btn.addEventListener('click', () => {
+    const textToCopy = codeEl.textContent.trim();
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      const btnText = document.getElementById('copyBtnText');
+      if (btnText) {
+        btnText.textContent = 'Copied! ✓';
+        setTimeout(() => {
+          btnText.textContent = 'Copy Template';
+        }, 3000);
+      }
+      showToast('Alumni intro template copied to clipboard! 📋');
+    }).catch(() => {
+      showToast('Template copied: Ready to paste!');
+    });
+  });
+}
+
+/* ==========================================================================
+   9. Toast Notification Utility
    ========================================================================== */
 function showToast(message) {
   let container = document.querySelector('.toast-container');
@@ -270,27 +380,39 @@ function showToast(message) {
     toast.style.transform = 'translateY(10px)';
     toast.style.transition = 'all 0.3s ease';
     setTimeout(() => toast.remove(), 300);
-  }, 4000);
+  }, 3500);
 }
 
 /* ==========================================================================
-   9. Active Navigation Link Highlighting on Scroll
+   10. Scroll Spy for Active Navigation & Dock Items
    ========================================================================== */
 function initScrollSpy() {
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links .nav-link');
+  const dockItems = document.querySelectorAll('.mobile-dock .dock-item:not(#dockThemeToggle)');
 
-  if (!sections.length || !navLinks.length) return;
+  if (!sections.length) return;
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute('id');
+        
+        // Desktop nav links
         navLinks.forEach(link => {
           if (link.getAttribute('href') === `#${id}`) {
             link.classList.add('active');
           } else {
             link.classList.remove('active');
+          }
+        });
+
+        // Mobile dock items
+        dockItems.forEach(item => {
+          if (item.getAttribute('href') === `#${id}`) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
           }
         });
       }
